@@ -14,7 +14,4 @@ class Solution:
                 return False
         print(d)
         
-        for i in d.values():
-            if i!=0:
-                return False
-        return True
+        return all(x == 0 for x in d.values())
