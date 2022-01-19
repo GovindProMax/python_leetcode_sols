@@ -10,6 +10,8 @@ class Solution:
             return None
         if head.next == None:
             return head
+
+        
         new_head=head.next
         head.next=None
         
@@ -23,4 +25,16 @@ class Solution:
         
         new_head.next=head
         return new_head
-        
+
+### Alternate fewer line implementation###
+def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+
+    prev,curr=None,head
+    
+    while curr:
+        nxt=curr.next
+        curr.next=prev
+        prev=curr
+        curr=nxt
+    
+    return prev
