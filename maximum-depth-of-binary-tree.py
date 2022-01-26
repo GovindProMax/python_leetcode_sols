@@ -19,5 +19,3 @@ class Solution:
             dfs(node.right,h+1)
         dfs (root,0)
         return (max(sumdict) + 1)
-        
-        
