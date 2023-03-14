@@ -1,16 +1,18 @@
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
-        left = 0
-        right = len(nums) - 1
-        newarr = []
-        
+        sortedSquares=[0 for num in nums]
+        left=0
+        right=len(nums)-1
+        pointer=len(nums)-1
+
         while left<=right:
-            if abs(nums[left]) < abs(nums[right]):
-                newarr.insert(0,nums[right] ** 2)
-                right = right - 1
+            if abs(nums[left])<=abs(nums[right]):
+                sortedSquares[pointer]=nums[right]*nums[right]
+                right-=1
+                pointer-=1
             else:
-                newarr.insert(0,nums[left] ** 2)
-                left = left + 1
+                sortedSquares[pointer]=nums[left]*nums[left]
+                left+=1
+                pointer-=1
         
-        return newarr
-                
+        return sortedSquares
