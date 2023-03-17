@@ -1,8 +1,27 @@
 class Solution:
-    def findDuplicate(self, nums: List[int]) -> int: 
-        mydict={}
-        for elem in nums:
-            if elem in mydict:
-                return elem
+    def findDuplicate(self, array: List[int]) -> int:
+        """dict = {}
+        for index in range(len(array)):
+            if array[index] in dict:
+                return array[index]
             else:
-                mydict[elem] = 0
+                dict[array[index]] = False
+        return -1*/
+        
+        Floyd's algorithm:
+        """
+        
+        slow,fast=0,0
+
+        while True:
+            slow=array[slow]
+            fast=array[array[fast]]
+            if slow==fast:
+                break
+        slow2=0
+
+        while True:
+            slow=array[slow]
+            slow2=array[slow2]
+            if slow==slow2:
+                return slow
